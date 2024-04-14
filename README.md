@@ -92,5 +92,5 @@ This project is open-source and available under the [MIT License](LICENSE). Plea
 
 ## Demo Video
 
-For a demonstration of the application and its features, watch the [demo video](<demo-video-link>).
+For a demonstration of the application and its features, watch the [demo video](<https://github.com/Tiru2002/Knowhere/raw/main/demok/knowhere2%20-%20Made%20with%20Clipchamp.mp4>).
 
