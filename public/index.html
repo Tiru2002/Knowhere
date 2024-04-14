@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.pnge">
+    <title>Translator</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Include pdfmake library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
+</head>
+
+<body>
+
+<nav>
+    <a href="#" onclick="showSection('home')" class="logo">Knowhere</a>
+    <div>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('textTranslator')">Text Translator</a> 
+        <a href="#" onclick="showSection('documentTranslator')">Document Translator</a>
+        <a href="#" onclick="showSection('help')">Help</a>
+        <a href="#" onclick="showSection('library')">Library</a>
+    </div>
+</nav>
+<div class="Body-content">
+    <!-- Home Section -->
+    <div id="home">
+        <div>
+            <h1>Knowhere</h1>
+            <h2>Unlocking the World's Knowledge in Your Language.</h2>
+        </div>
+    
+        <!-- Add your home content here -->
+    </div>
+
+    <!-- Text Translator Section -->
+    <div id="textTranslator" style="display: none;">
+        <div class="content">
+            <h1>&nbsp;&nbsp;Text Translator</h1>
+            <div class="mainContainer">
+                <div>
+                    <br>
+                    <textarea id="textInput" placeholder="Enter text to translate..."></textarea>
+                    <div class="lang-select">
+                        <select id="textSourceLanguage">
+                            <option value="en">English</option>
+                            <option value="fr">French</option>
+                            <option value="es">Spanish</option>
+                            <option value="hi">Hindi</option>
+                            <option value="bn">Bengali</option>
+                            <option value="te">Telugu</option>
+                            <option value="mr">Marathi</option>
+                            <option value="ta">Tamil</option>
+                            <option value="gu">Gujarati</option>
+                            <option value="kn">Kannada</option>
+                            <option value="ml">Malayalam</option>
+                            <option value="pa">Punjabi</option>
+                            <option value="or">Odia</option>
+                            <option value="as">Assamese</option>
+                            <option value="ur">Urdu</option>
+                            <option value="ks">Kashmiri</option>
+                            <option value="sa">Sanskrit</option>
+                            <option value="sd">Sindhi</option>
+                            <option value="ne">Nepali</option>
+                            <option value="bh">Bhojpuri</option>
+                            <option value="br">Braj</option>
+                            <option value="ta">Tulu</option>
+                            <option value="me">Mizo</option>
+                            <!-- Add more language options as needed -->
+                        </select>
+                    </div>
+                    <button onclick="translateText()">Translate -></button>
+                </div>
+                <hr style="position: absolute;width: 400px;transform: rotate(90deg);top: 350px;">
+                <div>
+                    <br>
+                    <textarea id="translatedText"></textarea>
+                    <div class="lang-select">
+                        <select id="textTargetLanguage">
+                            <option value="en">English</option>
+                            <option value="fr">French</option>
+                            <option value="es">Spanish</option>
+                            <option value="en">English</option>
+                            <option value="fr">French</option>
+                            <option value="es">Spanish</option>
+                            <option value="hi">Hindi</option>
+                            <option value="bn">Bengali</option>
+                            <option value="te">Telugu</option>
+                            <option value="mr">Marathi</option>
+                            <option value="ta">Tamil</option>
+                            <option value="gu">Gujarati</option>
+                            <option value="kn">Kannada</option>
+                            <option value="ml">Malayalam</option>
+                            <option value="pa">Punjabi</option>
+                            <option value="or">Odia</option>
+                            <option value="as">Assamese</option>
+                            <option value="ur">Urdu</option>
+                            <option value="ks">Kashmiri</option>
+                            <option value="sa">Sanskrit</option>
+                            <option value="sd">Sindhi</option>
+                            <option value="ne">Nepali</option>
+                            <option value="bh">Bhojpuri</option>
+                            <option value="br">Braj</option>
+                            <option value="ta">Tulu</option>
+                            <option value="me">Mizo</option>
+                            <!-- Add more language options as needed -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Translator Section -->
+    <div id="documentTranslator" style="display: none;">
+        <div class="content">
+            <h1 style="margin-left: 50px;">Document Translator</h1>
+            <div>
+                <input type="file" id="documentInput">
+                <div class="lang-select">
+                    <div class="langCon">
+                        <select id="documentSourceLanguage">
+                            <option value="en">English</option>
+                            <option value="fr">French</option>
+                            <option value="es">Spanish</option>
+                            <option value="en">English</option>
+                            <option value="fr">French</option>
+                            <option value="es">Spanish</option>
+                            <option value="hi">Hindi</option>
+                            <option value="bn">Bengali</option>
+                            <option value="te">Telugu</option>
+                            <option value="mr">Marathi</option>
+                            <option value="ta">Tamil</option>
+                            <option value="gu">Gujarati</option>
+                            <option value="kn">Kannada</option>
+                            <option value="ml">Malayalam</option>
+                            <option value="pa">Punjabi</option>
+                            <option value="or">Odia</option>
+                            <option value="as">Assamese</option>
+                            <option value="ur">Urdu</option>
+                            <option value="ks">Kashmiri</option>
+                            <option value="sa">Sanskrit</option>
+                            <option value="sd">Sindhi</option>
+                            <option value="ne">Nepali</option>
+                            <option value="bh">Bhojpuri</option>
+                            <option value="br">Braj</option>
+                            <option value="ta">Tulu</option>
+                            <option value="me">Mizo</option>
+                            <!-- Add more language options as needed -->
+                        </select>
+                        <h1>--></h1>
+                        <select id="documentTargetLanguage">
+                            <option value="en">English</option>
+                            <option value="fr">French</option>
+                            <option value="es">Spanish</option>
+                            <option value="en">English</option>
+                            <option value="fr">French</option>
+                            <option value="es">Spanish</option>
+                            <option value="hi">Hindi</option>
+                            <option value="bn">Bengali</option>
+                            <option value="te">Telugu</option>
+                            <option value="mr">Marathi</option>
+                            <option value="ta">Tamil</option>
+                            <option value="gu">Gujarati</option>
+                            <option value="kn">Kannada</option>
+                            <option value="ml">Malayalam</option>
+                            <option value="pa">Punjabi</option>
+                            <option value="or">Odia</option>
+                            <option value="as">Assamese</option>
+                            <option value="ur">Urdu</option>
+                            <option value="ks">Kashmiri</option>
+                            <option value="sa">Sanskrit</option>
+                            <option value="sd">Sindhi</option>
+                            <option value="ne">Nepali</option>
+                            <option value="bh">Bhojpuri</option>
+                            <option value="br">Braj</option>
+                            <option value="ta">Tulu</option>
+                            <option value="me">Mizo</option>
+                            <!-- Add more language options as needed -->
+                        </select>
+                    </div>
+                    <button onclick="translateDocument()" class="doc-btn">Translate -></button>
+                    <a id="downloadLink" style="display: none;" download>Download Now</a>
+                </div>
+                <div class="con-box">
+                    <h1>Preview :</h1>
+                    <textarea id="translatedDocument" placeholder="Upload a file for preview." disabled style="border-radius: 15px;background-color: whitesmoke;"></textarea>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="help" style="display:none;">
+        <h1>Help &amp; Instructions</h1>
+        <div>
+            <p style="color: whitesmoke">Welcome to the help and instructions section of the Knowhere:</p>
+    
+            <h2 style="color: rgb(250, 195, 92);">Text Translation</h2>
+            <ol style="color: whitesmoke;">
+                <li>In the Text Translator section, enter the text you want to translate in the provided text area.</li>
+                <li>Select the source language of the text from the dropdown menu.</li>
+                <li>Choose the target language you want to translate the text into.</li>
+                <li>Click the "Translate" button.</li>
+                <li>The translated text will appear in the adjacent text area.</li>
+            </ol>
+    
+            <h2 style="color:rgb(250, 195, 92)">Document Translation</h2>
+            <ol style="color: whitesmoke;">
+                <li>In the Document Translator section, click the "Document Translator" link in the navigation menu.</li>
+                <li>Upload the document you want to translate using the provided file input.</li>
+                <li>Select the source language of the document from the dropdown menu.</li>
+                <li>Choose the target language you want to translate the document into.</li>
+                <li>Click the "Translate" button.</li>
+                <li>The translated document will be displayed in the preview area.</li>
+                <li>You can also download the translated document by clicking the "Download Now" link.</li>
+            </ol>
+    
+            <h2 style="color:rgb(250, 195, 92)">Navigation</h2>
+            <ul>
+                <li style="color: whitesmoke;">Use the navigation links at the top to switch between different sections of the application, such as Home, Text Translator, Document Translator, Help, and Library.</li>
+            </ul>
+    
+            <h2 style="color:rgb(250, 195, 92)">Library</h2>
+            <ul>
+           <li style="color: whitesmoke;" > The Library section may contain additional resources or information related to the application. Explore this section for more insights.</li>
+          </li>
+        </div>
+    </div>
+        <!-- Add your contact form or contact information here -->
+    
+
+    <!-- Library Section -->
+    <div id="library" style="display: none;">
+        <div id="library">
+            <div class="library-content">
+                <h1>Library</h1>
+                <div class="book-list">
+                    <!-- Book 1 -->
+                    <div class="book-item">
+                        <img src="path_to_book_cover1.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <h3 class="book-title">Book Title 1</h3>
+                            <p class="book-author">Author Name 1</p>
+                            <p class="book-description">Short description of Book 1 goes here.</p>
+                        </div>
+                        <div class="translate-options">
+                            <select class="target-language-dropdown">
+                                <option value="en">English</option>
+                                <option value="fr">French</option>
+                                <option value="es">Spanish</option>
+                                <!-- Add more language options as needed -->
+                            </select>
+                            <button class="translate-btn" onclick="translateBook(this)">Translate</button>
+                        </div>
+                    </div>
+                    <!-- Book 2 -->
+                    <div class="book-item">
+                        <img src="path_to_book_cover2.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <h3 class="book-title">Book Title 2</h3>
+                            <p class="book-author">Author Name 2</p>
+                            <p class="book-description">Short description of Book 2 goes here.</p>
+                        </div>
+                        <div class="translate-options">
+                            <select class="target-language-dropdown">
+                                <option value="en">English</option>
+                                <option value="fr">French</option>
+                                <option value="es">Spanish</option>
+                                <!-- Add more language options as needed -->
+                            </select>
+                            <button class="translate-btn" onclick="translateBook(this)">Translate</button>
+                        </div>
+                    </div>
+                    <!-- Book 3 -->
+                    <div class="book-item">
+                        <img src="path_to_book_cover3.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-info">
+                            <h3 class="book-title">Book Title 3</h3>
+                            <p class="book-author">Author Name 3</p>
+                            <p class="book-description">Short description of Book 3 goes here.</p>
+                        </div>
+                        <div class="translate-options">
+                            <select class="target-language-dropdown">
+                                <option value="en">English</option>
+                                <option value="fr">French</option>
+                                <option value="es">Spanish</option>
+                                <!-- Add more language options as needed -->
+                            </select>
+                            <button class="translate-btn" onclick="translateBook(this)">Translate</button>
+                        </div>
+                    </div>
+    </div>
+</div>
+<script>
+    // Function to switch between sections
+    // function showSection(sectionId) {
+    //     const sections = document.querySelectorAll('div[id$="Translator"], div[id$="Section"],div[id$="home"]');
+    //     sections.forEach(section => {
+    //         if (section.id === sectionId) {
+    //             section.style.display = 'block';
+    //         } else {
+    //             section.style.display = 'none';
+    //         }
+    //     });
+    // }
+    function showSection(sectionId) {
+            const sections = document.querySelectorAll('.Body-content > div');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+    // Function to translate text
+    function translateText() {
+        const text = document.getElementById("textInput").value;
+        const sourceLanguage = document.getElementById("textSourceLanguage").value;
+        const targetLanguage = document.getElementById("textTargetLanguage").value;
+
+        fetch('/translate/text', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    text: text,
+                    sourceLanguage: sourceLanguage,
+                    targetLanguage: targetLanguage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("translatedText").innerText = data.translatedText;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    // Function to translate document
+    function translateDocument() {
+        const file = document.getElementById("documentInput").files[0];
+        const sourceLanguage = document.getElementById("documentSourceLanguage").value;
+        const targetLanguage = document.getElementById("documentTargetLanguage").value;
+
+        const formData = new FormData();
+        formData.append('documentFile', file);
+        formData.append('sourceLanguage', sourceLanguage);
+        formData.append('targetLanguage', targetLanguage);
+
+        fetch('/translate/document', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("translatedDocument").innerText = data.translatedDocument;
+                
+                // Generate PDF on client side
+                const docDefinition = {
+                    content: [
+                        { text: data.translatedDocument, fontSize: 12 }
+                    ]
+                };
+                pdfMake.createPdf(docDefinition).download('translatedDocument.pdf');
+
+                const downloadLink = document.getElementById("downloadLink");
+                downloadLink.href = URL.createObjectURL(new Blob([data.translatedDocument], {
+                    type: 'text/plain'
+                }));
+                downloadLink.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>
+
+</body>
+
+</html>           
